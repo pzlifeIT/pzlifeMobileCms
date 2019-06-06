@@ -1,0 +1,24 @@
+.goodImg {
+    display: block;
+    width: 5rem;
+    margin: .2rem auto .1rem;
+}
+
+.goodTitle {
+    width: 5rem;
+    font-size: .32rem;
+    margin: 0 auto;
+}
+
+.goodBtn {
+    width: 4.5rem;
+    height: .92rem;
+    line-height: .92rem;
+    margin: .3rem 1.5rem 0;
+    color: #fff;
+    font-size: .32rem;
+    margin-bottom: 40rpx;
+    border-radius: .06rem;
+    background: #E61F18;
+    text-align: center;
+}

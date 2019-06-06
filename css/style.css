@@ -1,0 +1,116 @@
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+    margin: 0;
+    padding: 0
+}
+
+textarea {
+    resize: none;
+}
+
+body {
+    font: 12px "Microsoft YaHei", "Arial Narrow", HELVETICA;
+    font-family: "Microsoft YaHei";
+    background: #fff;
+    -webkit-text-size-adjust: 100%;
+}
+
+a {
+    color: #2d374b;
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+em {
+    font-style: normal
+}
+
+li {
+    list-style: none
+}
+
+img {
+    border: 0;
+    vertical-align: middle
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+p {
+    word-wrap: break-word
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body,
+html {
+    position: relative;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    display: none
+}
+
+.din {
+    display: inline-block;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="text"],
+input[type="password"] {
+    -webkit-appearance: none;
+    outline: none;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+    line-height: normal !important;
+}
+
+button,
+input {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
