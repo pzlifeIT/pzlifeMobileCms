@@ -121,11 +121,10 @@ input {
 .showToast {
     position: fixed;
     top: .2rem;
-    left: calc(50% - 1.5rem);
-    width: 3rem;
-    height: .60rem;
+    left: calc(50% - 1.75rem);
+    width: 3.5rem;
+    height: .80rem;
     border-radius: .05rem;
-    box-shadow: 0rem 0rem .10rem #888888;
     background-color: rgba(0, 0, 0, .5);
     z-index: 9999;
 }
@@ -135,7 +134,7 @@ input {
     height: 100%;
     margin-left: .50rem;
     color: #fff;
-    font-size: .12rem;
+    font-size: .26rem;
     display: flex;
     align-items: center;
 }
@@ -163,10 +162,10 @@ input {
     position: absolute;
     content: "";
     display: block;
-    top: .13rem;
-    left: .13rem;
-    width: .28rem;
-    height: .28rem;
+    top: .24rem;
+    left: .12rem;
+    width: .32rem;
+    height: .32rem;
 }
 
 .showToast.success::after {
