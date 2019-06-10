@@ -59,7 +59,7 @@
                     type: 'success',
                     text: '发放成功'
                 });
-                goodHint.innerHTML = '该商品已领取'
+
             },
             complete() {
                 docking = false
@@ -72,7 +72,7 @@
                         break;
                     case 3002:
                         text = '该商品已领取';
-                        break;
+                        goodHint.innerHTML = '该商品已领取'
                         break;
                     default:
                         text = '查询失败';
