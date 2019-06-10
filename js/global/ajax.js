@@ -61,11 +61,6 @@ let Ajax = function(params) {
 }
 
 
-let request = function(params) {
-    params.url = questurl[params.url] || params.url;
-    Ajax(params)
-}
-
 
 
 // 

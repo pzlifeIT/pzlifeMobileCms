@@ -27,7 +27,7 @@ textarea {
 }
 
 body {
-    font: 12px "Microsoft YaHei", "Arial Narrow", HELVETICA;
+    font: 12rem "Microsoft YaHei", "Arial Narrow", HELVETICA;
     font-family: "Microsoft YaHei";
     background: #fff;
     -webkit-text-size-adjust: 100%;
@@ -113,4 +113,189 @@ input {
     padding: 0;
     width: auto;
     height: auto;
+}
+
+
+/*  */
+
+.showToast {
+    position: fixed;
+    top: .2rem;
+    left: calc(50% - 1.5rem);
+    width: 3rem;
+    height: .60rem;
+    border-radius: .05rem;
+    box-shadow: 0rem 0rem .10rem #888888;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+}
+
+.showToast .text {
+    width: 2.40rem;
+    height: 100%;
+    margin-left: .50rem;
+    color: #fff;
+    font-size: .12rem;
+    display: flex;
+    align-items: center;
+}
+
+.showToast.success {
+    background-color: #75b675;
+}
+
+.showToast.error {
+    background-color: #cb5e58;
+}
+
+.showToast.warn {
+    background-color: #f9aa35;
+}
+
+.showToast.hint {
+    background-color: #58acc4;
+}
+
+.showToast.success::after,
+.showToast.error::after,
+.showToast.warn::after,
+.showToast.hint::after {
+    position: absolute;
+    content: "";
+    display: block;
+    top: .13rem;
+    left: .13rem;
+    width: .28rem;
+    height: .28rem;
+}
+
+.showToast.success::after {
+    background: url(../images/success.png) no-repeat center;
+    background-size: 100%;
+}
+
+.showToast.error::after {
+    background: url(../images/error.png) no-repeat center;
+    background-size: 100%;
+}
+
+.showToast.warn::after {
+    background: url(../images/warn.png) no-repeat center;
+    background-size: 100%;
+}
+
+.showToast.hint::after {
+    background: url(../images/hint.png) no-repeat center;
+    background-size: 100%;
+}
+
+.table {
+    display: table!important;
+}
+
+.table-row {
+    display: table-row!important;
+}
+
+.table-cell {
+    display: table-cell!important;
+}
+
+.loading {
+    position: fixed;
+    top: calc(50% - 1rem);
+    left: calc(50% - .75rem);
+    margin: 0 auto;
+    width: 1.5rem;
+    height: 1.70rem;
+    border-radius: .05rem;
+    box-shadow: 0rem 0rem .05rem #888888;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9999;
+}
+
+.loading p {
+    margin-top: .20rem;
+    text-align: center;
+    color: rgb(197, 197, 197);
+    font-size: .20rem;
+}
+
+.loadEffect {
+    width: .80rem;
+    height: .80rem;
+    position: relative;
+    margin: 0 auto;
+    margin-top: .20rem;
+}
+
+.loadEffect span {
+    display: inline-block;
+    width: .16rem;
+    height: .16rem;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    -webkit-animation: load 1.04s ease infinite;
+}
+
+@-webkit-keyframes load {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.loadEffect span:nth-child(1) {
+    left: 0;
+    top: 50%;
+    margin-top: -0.08rem;
+    -webkit-animation-delay: 0.13s;
+}
+
+.loadEffect span:nth-child(2) {
+    left: .14rem;
+    top: .14rem;
+    -webkit-animation-delay: 0.26s;
+}
+
+.loadEffect span:nth-child(3) {
+    left: 50%;
+    top: 0;
+    margin-left: -0.08rem;
+    -webkit-animation-delay: 0.39s;
+}
+
+.loadEffect span:nth-child(4) {
+    top: .14rem;
+    right: .14rem;
+    -webkit-animation-delay: 0.52s;
+}
+
+.loadEffect span:nth-child(5) {
+    right: 0;
+    top: 50%;
+    margin-top: -0.08rem;
+    -webkit-animation-delay: 0.65s;
+}
+
+.loadEffect span:nth-child(6) {
+    right: .14rem;
+    bottom: .14rem;
+    -webkit-animation-delay: 0.78s;
+}
+
+.loadEffect span:nth-child(7) {
+    bottom: 0;
+    left: 50%;
+    margin-left: -0.08rem;
+    -webkit-animation-delay: 0.91s;
+}
+
+.loadEffect span:nth-child(8) {
+    bottom: .14rem;
+    left: .14rem;
+    -webkit-animation-delay: 1.04s;
 }

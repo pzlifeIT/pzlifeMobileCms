@@ -1,0 +1,35 @@
+.logo {
+    width: 100%;
+    height: 1.22rem;
+    margin-top: .64rem;
+    margin-bottom: 1rem;
+}
+
+.logo img {
+    display: block;
+    height: 1.22rem;
+    margin: 0 auto;
+}
+
+#user,
+#pwd {
+    display: block;
+    width: 7.10rem;
+    height: .88rem;
+    border-bottom: 1px solid #F7F7F7;
+    margin: .25rem auto;
+    font-size: .32rem;
+}
+
+.register {
+    display: block;
+    width: 7.10rem;
+    height: .92rem;
+    margin: 0 auto;
+    background: #E61F18;
+    color: #fff;
+    font-size: .32rem;
+    text-align: center;
+    border-radius: .05rem;
+    margin-top: 1rem;
+}

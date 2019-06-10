@@ -4,30 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="cache-control" content="no-cache, must-revalidate">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="divport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="Cache" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
-    <title>抽奖结果</title>
+    <title>登录</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/lucky.css">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <body>
-    <img id="goodImg" class="goodImg" src="" alt="">
-    <p class="goodTitle" id="goodTitle"></p>
-    <p class="goodTitle goodHint" id="goodHint"></p>
-    <button id="goodBtn" class="goodBtn">确定</button>
+    <div class="logo">
+        <img src="https://webimages.pzlive.vip/logo1.png" alt="">
+    </div>
+    <input class="userInp" type="text" id="user" placeholder="请输入账号">
+    <input class="pwdInp" type="password" id="pwd" placeholder="请输入密码">
+    <button class="register" id="loginBtn">登录</button>
 </body>
-
 <script type="text/javascript " src="./config/config.js"></script>
 <script type="text/javascript " src="./js/global/rem.js"></script>
 <script type="text/javascript " src="./js/global/utils.js"></script>
 <script type="text/javascript " src="./js/global/ajax.js"></script>
 <script type="text/javascript " src="./js/global/app.js"></script>
-<script type="text/javascript " src="./js/lucky.js"></script>
+<script type="text/javascript " src="./js/login.js"></script>
 
 </html>

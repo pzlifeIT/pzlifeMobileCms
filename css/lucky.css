@@ -1,19 +1,28 @@
 .goodImg {
     display: block;
     width: 5rem;
+    min-height: 5rem;
     margin: .2rem auto .1rem;
 }
 
 .goodTitle {
     width: 5rem;
+    min-height: 1rem;
     font-size: .32rem;
     margin: 0 auto;
 }
 
+.goodHint {
+    color: #E61F18;
+    text-align: center;
+    line-height: 1rem;
+}
+
 .goodBtn {
+    display: block;
     width: 4.5rem;
     height: .92rem;
-    margin: .3rem 1.5rem 0;
+    margin: .3rem auto 0;
     color: #fff;
     font-size: .32rem;
     border-radius: .06rem;
