@@ -24,9 +24,9 @@
                 goodTitle.innerHTML = res.goods_name
                 if (res.is_winning == 1) {
                     showToast({
-                        text: '改商品已领取'
+                        text: '该商品已领取'
                     });
-                    goodHint.innerHTML = '改商品已领取'
+                    goodHint.innerHTML = '该商品已领取'
                 }
             },
             Error(code) {
@@ -56,9 +56,10 @@
             },
             success(res) {
                 showToast({
+                    type: 'success',
                     text: '发放成功'
                 });
-                goodHint.innerHTML = '改商品已领取'
+                goodHint.innerHTML = '该商品已领取'
             },
             complete() {
                 docking = false
