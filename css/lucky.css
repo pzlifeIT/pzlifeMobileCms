@@ -10,11 +10,11 @@
     min-height: 1rem;
     font-size: .36rem;
     margin: 0 auto;
+    text-align: center;
 }
 
 .goodHint {
     color: #E61F18;
-    text-align: center;
     line-height: 1rem;
 }
 
