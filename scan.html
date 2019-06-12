@@ -4,11 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>Barcode Example</title>
+    <!-- <script src="html5plus://ready"></script> -->
     <script type="text/javascript">
         // 扩展API加载完毕后调用onPlusReady回调函数 
-        document.addEventListener("plusready", onPlusReady, false);
+        alert(!window.plus)
+        document.addEventListener("plusready", function() {
+
+        }, false);
         // 扩展API加载完毕，现在可以正常调用扩展API
         function onPlusReady() {
+            console.log('运行了')
             var e = document.getElementById("scan");
             e.removeAttribute("disabled");
         }
@@ -63,7 +68,7 @@
 </head>
 
 <body>
-    <input type='button' onclick='startRecognize()' value='创建扫码控件' />
+    <input type='button' id="scan" onclick='startRecognize()' value='创建扫码控件' />
     <input type='button' onclick='startScan()' value='开始扫码' />
     <div id="bcid"></div>
     <input type='text' id='text' />
