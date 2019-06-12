@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="http://sao315.com/w/api/saoyisao">扫一扫</a>
+    <p id="result"></p>
+</body>
+<script>
+    var result = document.querySelector('#result')
+    result.innerHTML = getQrcode()
+
+    function getQrcode() {
+        var reg = new RegExp("\\b" + 'qrresult' + '=([^&]*)');
+        var r = location.href.match(reg)
+        return r || '无'
+    }
+</script>
+
+</html>
