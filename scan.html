@@ -1,88 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.min.css" rel="stylesheet" />
+    <script src="js/mui.min.js"></script>
+    <style type="text/css">
+        #bcid {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: #000000;
+        }
+        
+        html,
+        body,
+        div {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .fbt {
+            color: #0E76E1;
+            width: 50%;
+            background-color: #ffffff;
+            float: left;
+            line-height: 44px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <a href="http://sao315.com/w/api/saoyisao">扫一扫</a>
-    <p id="result"></p>
-    <button onclick="startScan">2.开始扫描</button>
-    <button onclick="cancelScan">3.结束扫描</button>
+    <header class="mui-bar mui-bar-nav" style="background-color: #ffffff;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title" style="color: #0E76E1;">物品二维码扫描</h1> <span class="mui-icon mui-icon-spinner-cycle mui-spin mui-pull-right" id="turnTheLight"></span> </header>
+    <div id="bcid">
+        <!--盛放扫描控件的div-->
+    </div>
+    <div class="mui-bar mui-bar-footer" style="padding: 0px;">
+        <div class="fbt" onclick="scanPicture();">从相册选择二维码</div>
+        <div class="fbt mui-action-back">取　 消</div>
+    </div>
+    <script type="text/javascript">
+        scan = null; //扫描对象		
+        mui.plusReady(function() {
+            mui.init();
+            startRecognize();
+        });
 
-    <button onclick="closeScan">4.关闭控件</button>-->
-</body>
-<script>
-    var result = document.querySelector('#result')
-    result.innerHTML = getQrcode()
+        function startRecognize() {
+            try {
+                var filter; //自定义的扫描控件样式			 
+                var styles = {
+                        frameColor: "#29E52C",
+                        scanbarColor: "#29E52C",
+                        background: ""
+                    } //扫描控件构造			
+                scan = new plus.barcode.Barcode('bcid', filter, styles);
+                scan.onmarked = onmarked;
+                scan.onerror = onerror;
+                scan.start(); //打开关闭闪光灯处理			
+                var flag = false;
+                document.getElementById("turnTheLight").addEventListener('tap', function() {
+                    if (flag == false) {
+                        scan.setFlash(true);
+                        flag = true;
+                    } else {
+                        scan.setFlash(false);
+                        flag = false;
+                    }
+                });
+            } catch (e) {
+                alert("出现错误啦:\n" + e);
+            }
+        };
 
-    function getQrcode() {
-        var reg = new RegExp("\\b" + 'qrresult' + '=([^&]*)');
-        var r = location.href.match(reg)
-        return r || '无'
-    };
-    let scan = null
-    startRecognize()
+        function onerror(e) {
+            alert(e);
+        };
 
-    function startRecognize() {
-        console.log("进来了");
-        let that = this;
-        if (!window.plus) return;
-        scan = new plus.barcode.Barcode('bcid');
-        scan.onmarked = onmarked;
-
-        function onmarked(type, result, file) {
+        function onmarked(type, result) {
+            var text = '';
             switch (type) {
                 case plus.barcode.QR:
-                    type = 'QR';
+                    text = 'QR: ';
                     break;
                 case plus.barcode.EAN13:
-                    type = 'EAN13';
+                    text = 'EAN13: ';
                     break;
                 case plus.barcode.EAN8:
-                    type = 'EAN8';
-                    break;
-                default:
-                    type = '其它' + type;
+                    text = 'EAN8: ';
                     break;
             }
-            result = result.replace(/\n/g, '');
-            that.codeUrl = result;
-            // var result= '0:0:0:0:0:0:0:1_65A60A0D49AD4B036338107B9888A0A7_1546589456729_YYD';
-              
-            var scancode = result.substring(result.length - 17);
-            var resultlist = scancode.split("_");
-            if (resultlist[0].length == 13 && resultlist[1] == "YYD") {
-                that.closeScan2();
-            } else {  
-                that.closeScan2();
-            }
-
+            alert(text + " : " + result);
+        }; // 从相册中选择二维码图片 		
+        function scanPicture() {
+            plus.gallery.pick(function(path) {
+                plus.barcode.scan(path, onmarked, function(error) {
+                    plus.nativeUI.alert("无法识别此图片");
+                });
+            }, function(err) {
+                plus.nativeUI.alert("Failed: " + err.message);
+            });
         }
-    };
-    //开始扫描
-    function startScan() {
-        console.log("开始扫描");
-        if (!window.plus) return;
-        scan.start();
-    }
-    //关闭扫描
-    function cancelScan() {
-        if (!window.plus) return;
-        scan.cancel();
-    }
-    //关闭条码识别控件
-    function closeScan() {
-        scan.close();
-    }
-    //关闭条码识别控件
-    function closeScan2() {
-        scan.close();
-    }
-</script>
+    </script>
+</body>
 
 </html>
