@@ -5,7 +5,14 @@
     <meta charset="utf-8">
     <title>Barcode Example</title>
     <!-- <script src="html5plus://ready"></script> -->
+    <script src="./mui.js"></script>
     <script type="text/javascript">
+        mui.plusReady(function() {
+            alert('支持plus')
+            var i = plus.webview.getWebviewById('txffc');
+            console.log(i);
+        });
+
         var ws = null,
             wo = null;
 
@@ -52,7 +59,7 @@
             plusReady();
 
         } else {
-
+            console.log('....')
             document.addEventListener('plusready', plusReady, false);
 
         }
