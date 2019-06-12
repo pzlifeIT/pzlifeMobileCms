@@ -6,45 +6,55 @@
     <title>Barcode Example</title>
     <!-- <script src="html5plus://ready"></script> -->
     <script type="text/javascript">
-        // 扩展API加载完毕后调用onPlusReady回调函数 
-        alert(!window.plus)
-        document.addEventListener("plusready", function() {
+        var ws = null,
+            wo = null;
 
-        }, false);
-        // 扩展API加载完毕，现在可以正常调用扩展API
-        function onPlusReady() {
-            console.log('运行了')
-            var e = document.getElementById("scan");
-            e.removeAttribute("disabled");
-        }
-        var scan = null;
+        var scan = null,
+            domready = false;
 
-        function onmarked(type, result) {
-            var text = '未知: ';
-            switch (type) {
-                case plus.barcode.QR:
-                    text = 'QR: ';
-                    break;
-                case plus.barcode.EAN13:
-                    text = 'EAN13: ';
-                    break;
-                case plus.barcode.EAN8:
-                    text = 'EAN8: ';
-                    break;
+        function plusReady() {
+            alert('支持plus')
+            if (ws || !window.plus || !domready) {
+
+                return;
+
             }
-            alert(text + result);
+
+            // 获取窗口对象   
+
+            ws = plus.webview.currentWebview();
+
+            wo = ws.opener();
+
+            // 开始扫描   
+
+            ws.addEventListener('show', function() {
+
+                scan = new plus.barcode.Barcode('bcid');
+
+                scan.onmarked = onmarked;
+
+                scan.start({
+                    conserve: true,
+                    filename: '_doc/barcode/'
+                });
+
+            }, false);
+
+            // 显示页面并关闭等待框   
+
+            ws.show('pop-in');
+
         }
 
-        function startRecognize() {
-            console.log(window.plus)
-            alert(window.plus)
-            scan = new plus.barcode.Barcode('bcid');
-            scan.onmarked = onmarked;
-        }
+        if (window.plus) {
 
-        function startScan() {
-            alert(scan)
-            scan.start();
+            plusReady();
+
+        } else {
+
+            document.addEventListener('plusready', plusReady, false);
+
         }
     </script>
     <style type="text/css">
