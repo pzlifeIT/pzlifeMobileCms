@@ -10,6 +10,7 @@
 
 <body>
     <video id="vid" src=""></video>
+    <button id="btn">扫一扫</button>
 </body>
 <script>
     (function(win, doc) {
@@ -60,9 +61,13 @@
                             }
                         }
                     });
+                    btn.onclick = function() {
+                        self.openScan()
+                    }
                 },
                 openScan: function() {
                     var self = this;
+                    alert('llll')
                     if (self.can_open) {
                         var vd = doc.createElement('video');
                         vd.setAttribute('id', 'video_id');
