@@ -78,11 +78,10 @@
             canvas.height = 305;
             var ctx = canvas.getContext('2d');
             ctx.drawImage(video, 0, 0, 340, 305);
-            var base64 = canvas.toDataURL("image/png");
+            var base64 = canvas.toDataURL("image/jpeg");
             var blob = self.Base64ToBlob(base64);
             let m = parseInt(Math.random() * 100000)
-            alert('运行了getImgDecode')
-            let file = dataURLtoFile(base64, m + '.png')
+            let file = self.dataURLtoFile(base64, m + '.jpg')
             alert(file + '=-----' + m)
             func(file)
         },
