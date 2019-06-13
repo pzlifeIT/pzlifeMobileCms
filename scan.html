@@ -56,6 +56,24 @@
 
         });
     };
+
+    function photograph() {
+        var context = canvas.getContext("2d");
+
+        // 截取取景框范围（这里用canvas做取景框）
+        //var x = canvas.clientLeft;
+        //var y = canvas.clientTop;
+        //context.drawImage(video,x, y, canvas.width, canvas.height, 0, 0, canvas.width, canvas.height);
+
+        var box = getBox();
+        context.drawImage(video, box.X, box.Y, box.W, box.H, 0, 0, box.W, box.H);
+
+        //imageConvertToGray(context);
+
+        var imgData = canvas.toDataURL("image/png");
+        $("#code").val(imgData);
+
+    }
 </script>
 
 </html>
