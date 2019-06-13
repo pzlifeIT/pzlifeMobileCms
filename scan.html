@@ -34,8 +34,9 @@
     var scan = new QRScan('video');
     document.getElementById('open').onclick = function() {
         scan.openScan();
+        alert('运行了')
         ds = window.setInterval(function() {
-            alert('运行了')
+
             startScan();
         }, 1500);
     };
