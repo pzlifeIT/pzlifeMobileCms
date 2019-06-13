@@ -81,6 +81,7 @@
             var base64 = canvas.toDataURL("image/png");
             var blob = self.Base64ToBlob(base64);
             let m = parseInt(Math.random() * 100000)
+            alert('运行了getImgDecode')
             let file = dataURLtoFile(base64, m + '.png')
             alert(file + '=-----' + m)
             func(file)
