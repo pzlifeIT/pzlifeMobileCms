@@ -35,7 +35,6 @@
     document.getElementById('open').onclick = function() {
         scan.openScan();
         setInterval(function() {
-            alert('运行了')
             startScan();
         }, 1500);
     };
@@ -48,6 +47,7 @@
     function startScan() {
         scan.getImgDecode(function(data) {
             console.log(data);
+            alert('运行了getImgDecode')
             var oFReader = new FileReader();
             oFReader.onload = function(oFREvent) {
                 qrcode.decode(oFREvent.target.result);
