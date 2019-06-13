@@ -27,6 +27,7 @@
     <div id="result"></div>
 </body>
 <script src="./js/scan.js"></script>
+<script src="./js/global/qrcode.js"></script>
 
 <script>
     var ds = null;
@@ -46,34 +47,18 @@
     function startScan() {
         scan.getImgDecode(function(data) {
             console.log(data);
-            var p = document.createElement('p');
-            if (data.success) {
-                p.innerHTML = 'RESULT: ' + data.payload;
-            } else {
-                p.innerHTML = 'ERROR: ' + data.msg;
-            }
-            re_div.appendChild(p);
+            var oFReader = new FileReader();
+            oFReader.onload = function(oFREvent) {
+                qrcode.decode(oFREvent.target.result);
+                qrcode.callback = function(data) {
+                    //得到扫码的结果
+                    re_div.innerHTML = data
+                };
+            };
+            oFReader.readAsDataURL(data);
 
         });
     };
-
-    function photograph() {
-        var context = canvas.getContext("2d");
-
-        // 截取取景框范围（这里用canvas做取景框）
-        //var x = canvas.clientLeft;
-        //var y = canvas.clientTop;
-        //context.drawImage(video,x, y, canvas.width, canvas.height, 0, 0, canvas.width, canvas.height);
-
-        var box = getBox();
-        context.drawImage(video, box.X, box.Y, box.W, box.H, 0, 0, box.W, box.H);
-
-        //imageConvertToGray(context);
-
-        var imgData = canvas.toDataURL("image/png");
-        $("#code").val(imgData);
-
-    }
 </script>
 
 </html>
