@@ -82,6 +82,7 @@
             var blob = self.Base64ToBlob(base64);
             let m = parseInt(Math.random() * 100000)
             let file = dataURLtoFile(base64, m + '.png')
+            alert(file + '=-----' + m)
             func(file)
         },
         dataURLtoFile(dataurl, filename) { //将base64转换为文件
