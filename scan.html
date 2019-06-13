@@ -47,7 +47,6 @@
     function startScan() {
         scan.getImgDecode(function(data) {
             console.log(data);
-            alert('运行了getImgDecode')
             var oFReader = new FileReader();
             oFReader.onload = function(oFREvent) {
                 qrcode.decode(oFREvent.target.result);

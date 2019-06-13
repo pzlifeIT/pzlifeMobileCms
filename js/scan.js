@@ -79,10 +79,8 @@
             var ctx = canvas.getContext('2d');
             ctx.drawImage(video, 0, 0, 340, 305);
             var base64 = canvas.toDataURL("image/jpeg");
-            var blob = self.Base64ToBlob(base64);
             let m = parseInt(Math.random() * 100000)
             let file = self.dataURLtoFile(base64, m + '.jpg')
-            alert(file + '=-----' + m)
             func(file)
         },
         dataURLtoFile(dataurl, filename) { //将base64转换为文件
@@ -95,26 +93,6 @@
                 u8arr[n] = bstr.charCodeAt(n);
             }
             return new File([u8arr], filename, { type: mime });
-        },
-        sendBlob: function(blob, func) {
-            var fd = new FormData();
-            fd.append('auth', 'lkl123456');
-            fd.append('file', blob);
-            var xhr = new XMLHttpRequest();
-            xhr.open('post', 'http://123.206.7.80:10082/api/parse', true);
-            xhr.onload = function() {
-                func ? func(JSON.parse(xhr.responseText)) : null;
-            };
-            xhr.send(fd);
-        },
-        Base64ToBlob: function(base64) {
-            var code = win.atob(base64.split(',')[1]);
-            var len = code.length;
-            var as = new Uint8Array(len);
-            for (var i = 0; i < len; i++) {
-                as[i] = code.charCodeAt(i);
-            }
-            return new Blob([as], { type: 'image/png' });
         }
     }
     win.QRScan = QRScan;
