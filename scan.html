@@ -35,6 +35,7 @@
     document.getElementById('open').onclick = function() {
         scan.openScan();
         ds = window.setInterval(function() {
+            alert('运行了')
             startScan();
         }, 1500);
     };
